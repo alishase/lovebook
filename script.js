@@ -55,6 +55,16 @@ const PHOTO_LIBRARY = {
         alt: "Милое совместное фото с собакой",
         type: "portrait",
     },
+    us9: {
+        src: "imgs/us9.png",
+        alt: "Милое совместное фото нас",
+        type: "portrait",
+    },
+    us10: {
+        src: "imgs/us10.png",
+        alt: "Милое совместное старое фото нас",
+        type: "portrait",
+    },
     love: {
         src: "imgs/love.png",
         alt: "Рука с надписями люблю максимку",
@@ -84,11 +94,13 @@ const PHOTO_LIBRARY = {
 
 const STORY_PHOTOS = {
     0: ["us3"],
+    3: ["us10"],
     4: ["maksim"],
     7: ["love"],
     9: ["us2"],
     12: ["us1"],
     13: ["dota"],
+    15: ["us9"],
     16: ["alisa"],
     19: ["us8"],
     21: ["us7"],
@@ -106,6 +118,8 @@ const FINAL_PHOTOS = [
     "us6",
     "us7",
     "us8",
+    "us9",
+    "us10",
     "love",
     "heart",
     "alisa",
@@ -145,24 +159,27 @@ function renderPhotoCluster(keys, variant = "") {
 
 function renderPageHearts() {
     const heartColors = [
-        "rgba(232, 116, 142, .42)",
-        "rgba(244, 157, 174, .38)",
-        "rgba(255, 184, 174, .40)",
-        "rgba(210, 104, 124, .32)",
-        "rgba(255, 210, 203, .48)",
+        "rgba(232, 116, 142, .32)",
+        "rgba(244, 157, 174, .28)",
+        "rgba(255, 184, 174, .30)",
+        "rgba(210, 104, 124, .22)",
+        "rgba(255, 210, 203, .38)",
     ];
     let seed = 1427;
     const random = () => {
         seed = (seed * 1664525 + 1013904223) >>> 0;
         return seed / 4294967296;
     };
-    const columns = 10;
-    const rows = 8;
+    const columns = 7;
+    const rows = 4;
     const hearts = Array.from({ length: columns * rows }, (_, i) => {
         const row = Math.floor(i / columns);
         const column = i % columns;
         const top = ((row + 0.12 + random() * 0.72) * (100 / rows)).toFixed(1);
-        const left = ((column + 0.10 + random() * 0.78) * (100 / columns)).toFixed(1);
+        const left = (
+            (column + 0.1 + random() * 0.78) *
+            (100 / columns)
+        ).toFixed(1);
         const size = 15 + Math.round(random() * 22);
         const mobileSize = Math.max(10, Math.round(size * 0.72));
         const rotate = Math.round(-38 + random() * 76);
