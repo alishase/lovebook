@@ -435,6 +435,43 @@ body.dark .gift-intro {
     color: var(--accent);
     font-size: 28px;
 }
+.logo span,
+.name-heart {
+    position: relative;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    flex: 0 0 auto;
+    border-radius: 4px 4px 0 4px;
+    background: var(--accent);
+    transform: rotate(45deg);
+}
+.logo span::before,
+.logo span::after,
+.name-heart::before,
+.name-heart::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+}
+.logo span::before,
+.name-heart::before {
+    left: -50%;
+    top: 0;
+}
+.logo span::after,
+.name-heart::after {
+    left: 0;
+    top: -50%;
+}
+.name-heart {
+    width: 10px;
+    height: 10px;
+    opacity: 0.72;
+}
 
 h1 {
     margin: 0;
@@ -583,15 +620,13 @@ body.dark .page {
 }
 
 .page::before {
-    content: "\2661";
+    content: "";
     position: absolute;
     top: 28px;
     right: 36px;
     z-index: 0;
     pointer-events: none;
-    color: rgba(180, 95, 77, 0.18);
-    font-size: 96px;
-    line-height: 1;
+    display: none;
 }
 
 .page > :not(.page-hearts) {
@@ -611,23 +646,32 @@ body.dark .page {
     display: block;
     top: var(--heart-top, auto);
     left: var(--heart-left, auto);
-    color: var(--heart-color, rgba(232, 116, 142, 0.5));
-    font-size: var(--heart-size, 24px);
-    line-height: 1;
-    transform: rotate(var(--rotate, 0deg));
-    text-shadow: 0 7px 18px rgba(180, 95, 77, 0.16);
+    width: var(--heart-size, 18px);
+    height: var(--heart-size, 18px);
+    background: var(--heart-color, rgba(232, 116, 142, 0.36));
+    border-radius: 4px 4px 0 4px;
+    filter: drop-shadow(0 7px 14px rgba(180, 95, 77, 0.12));
+    transform: rotate(calc(45deg + var(--rotate, 0deg)));
     animation: heartDrift var(--speed, 8s) ease-in-out infinite;
     animation-delay: var(--heart-delay, 0s);
 }
 
+.page-hearts span::before,
+.page-hearts span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+}
 .page-hearts span::before {
-    content: "\2661";
+    left: -50%;
+    top: 0;
 }
-.page-hearts span:nth-child(3n)::before {
-    content: "\2764";
-}
-.page-hearts span:nth-child(5n)::before {
-    content: "\2665";
+.page-hearts span::after {
+    left: 0;
+    top: -50%;
 }
 .page-hearts span:nth-child(1) {
     top: 8%;
@@ -906,20 +950,53 @@ body.dark .page {
     right: auto;
     bottom: auto;
     left: var(--heart-left);
+    width: var(--heart-size);
+    height: var(--heart-size);
+    background: var(--heart-color);
+    animation-delay: var(--heart-delay);
+}
+.page-hearts span {
+    width: auto;
+    height: auto;
+    background: transparent;
+    border-radius: 0;
+    color: var(--heart-color, rgba(232, 116, 142, 0.42));
+    filter: none;
+    font-size: var(--heart-size, 18px);
+    line-height: 1;
+    text-shadow: 0 7px 18px rgba(180, 95, 77, 0.16);
+    transform: rotate(var(--rotate, 0deg));
+}
+.page-hearts span::before {
+    content: "\2661";
+}
+.page-hearts span:nth-child(3n)::before {
+    content: "\2665";
+}
+.page-hearts span:nth-child(5n)::before {
+    content: "\2665";
+}
+.page-hearts span::after {
+    content: none;
+    display: none;
+}
+.page-hearts span[style] {
+    width: auto;
+    height: auto;
+    background: transparent;
     color: var(--heart-color);
     font-size: var(--heart-size);
-    animation-delay: var(--heart-delay);
 }
 
 @keyframes heartDrift {
     0%,
     100% {
         transform: translateY(0) rotate(var(--rotate, 0deg));
-        opacity: 0.72;
+        opacity: 0.58;
     }
     50% {
-        transform: translateY(-14px) rotate(var(--rotate, 0deg));
-        opacity: 1;
+        transform: translateY(-10px) rotate(var(--rotate, 0deg));
+        opacity: 0.82;
     }
 }
 
@@ -1363,14 +1440,33 @@ body.dark .source-row {
         );
     box-shadow: 0 22px 60px rgba(117, 63, 40, 0.14);
 }
-.final-big-heart span::before {
-    content: "\2764";
+.final-big-heart span {
+    position: relative;
+    width: 132px;
+    height: 132px;
     display: block;
-    color: #e8a391;
-    font-size: 170px;
-    line-height: 1;
-    text-shadow: 0 18px 38px rgba(180, 95, 77, 0.24);
+    border-radius: 18px 18px 0 18px;
+    background: #e8a391;
+    filter: drop-shadow(0 18px 34px rgba(180, 95, 77, 0.24));
+    transform: rotate(45deg);
     animation: finalHeartPulse 2.8s ease-in-out infinite;
+}
+.final-big-heart span::before,
+.final-big-heart span::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: inherit;
+}
+.final-big-heart span::before {
+    left: -50%;
+    top: 0;
+}
+.final-big-heart span::after {
+    left: 0;
+    top: -50%;
 }
 .final-gallery {
     position: relative;
@@ -1517,10 +1613,10 @@ body.dark .final-big-heart {
 @keyframes finalHeartPulse {
     0%,
     100% {
-        transform: scale(1);
+        transform: rotate(45deg) scale(1);
     }
     50% {
-        transform: scale(1.035);
+        transform: rotate(45deg) scale(1.035);
     }
 }
 @media (max-width: 640px) {
@@ -1544,8 +1640,9 @@ body.dark .final-big-heart {
     .final-big-heart {
         width: min(280px, 90%);
     }
-    .final-big-heart span::before {
-        font-size: 136px;
+    .final-big-heart span {
+        width: 104px;
+        height: 104px;
     }
     .final-gallery {
         min-height: 1120px;

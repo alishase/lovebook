@@ -236,7 +236,7 @@ function renderCover() {
           Конечно тут нельзя было уместить всё, но я постарался чтобы тебе понравилось!!
         </p>
         <div class="names">
-          <span>Максимка</span><span>♡</span><span>Алисик</span>
+          <span>Максимка</span><span class="name-heart" aria-hidden="true"></span><span>Алисик</span>
         </div>
       </div>
     </div>
