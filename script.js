@@ -436,7 +436,7 @@ function renderFinale() {
     ${renderPhotoCluster(FINAL_PHOTOS, "final-gallery")}
     <div class="note">
       Я хочу, чтобы дальше у нас было ещё больше таких огоньков: смешных, нежных, честных,
-      иногда нелепых, но обязательно наших.
+      иногда нелепых, но обязательно <strong>наших</strong>!!
     </div>
   `;
 }
