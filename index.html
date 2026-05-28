@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Пять лет с тобой</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body class="gift-locked">
+        <div class="ambient">
+            <span></span><span></span><span></span><span></span><span></span>
+        </div>
+
+        <div id="giftIntro" class="gift-intro" aria-label="Открыть книгу">
+            <button id="giftButton" class="gift-stage" type="button">
+                <span class="gift-hint">Нажми на меня</span>
+                <span class="gift-box" aria-hidden="true">
+                    <span class="gift-lid">
+                        <span class="gift-bow"></span>
+                    </span>
+                    <span class="gift-body">
+                        <span class="gift-ribbon vertical"></span>
+                        <span class="gift-ribbon horizontal"></span>
+                    </span>
+                    <span class="gift-glow"></span>
+                </span>
+            </button>
+        </div>
+
+        <header class="topbar">
+            <div class="brand">
+                <div class="logo">♡</div>
+                <div>
+                    <p class="eyebrow">интерактивная книга</p>
+                    <h1>Пять лет с тобой</h1>
+                </div>
+            </div>
+            <div class="top-actions">
+                <button id="themeBtn" class="ghost">Ночная тема</button>
+            </div>
+        </header>
+
+        <main class="layout">
+            <aside class="sidebar">
+                <div class="side-card">
+                    <p class="eyebrow">главы</p>
+                    <nav id="chapterNav"></nav>
+                </div>
+            </aside>
+
+            <section class="book-area">
+                <div class="progress-wrap">
+                    <div id="progressBar"></div>
+                </div>
+
+                <article id="page" class="page"></article>
+
+                <div class="controls">
+                    <button id="prevBtn">← Назад</button>
+                    <span id="counter">1 / 1</span>
+                    <button id="nextBtn">Вперёд →</button>
+                </div>
+            </section>
+        </main>
+
+        <script src="data.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
